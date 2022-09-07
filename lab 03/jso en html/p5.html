@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function totalARecibir(){
+            var a;
+            var b;
+
+            var monedaenv=document.getElementsByName("eleccion1");
+            console.log(monedaenv);
+            for (let i=0; i<monedaenv.length; i++){
+                if (monedaenv[i].checked){
+                    a=monedaenv[i].value;
+                }
+            }
+            var monedarec=document.getElementsByName("eleccion2");
+            console.log(monedarec);
+            for (let i=0; i<monedarec.length; i++){
+                if (monedarec[i].checked){
+                    b=monedarec[i].value;
+                }
+            }
+
+            var monto=parseInt(document.getElementById("monto").value);
+
+            var montorec=monto*a/b;
+            montorec=montorec.toFixed(2)
+
+            alert(montorec);
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <p>moneda a enviar</p>
+        <input type="radio" name="eleccion1" value="1" checked onclick="muestraOpcion()">soles
+        <input type="radio" name="eleccion1" value="3.8" onclick="muestraOpcion()">dolares
+        <input type="radio" name="eleccion1" value="3.7" onclick="muestraOpcion()">euros
+        <p>moneda a recibir</p>
+        <input type="radio" name="eleccion2" value="1" checked onclick="muestraOpcion()">soles
+        <input type="radio" name="eleccion2" value="3.8" onclick="muestraOpcion()">dolares
+        <input type="radio" name="eleccion2" value="3.7" onclick="muestraOpcion()">euros
+        <br/>
+        <br/>
+
+        <label>monto:</label>
+        <input type="number" id="monto">
+        <button type="button" onclick="totalARecibir()">monto a recibir</button>
+    </form>
+</body>
+</html>
